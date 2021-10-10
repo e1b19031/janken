@@ -29,9 +29,8 @@ public class lec02Controller{
     @GetMapping("/lec02janken")
     public String lec02_1(@RequestParam Integer hand,ModelMap model) {
         int cpu=0;
-        int user = hand.intValue();
 
-        switch (user) {
+        switch (hand) {
             case 0:
                 model.addAttribute("userHand","Gu");
                 break;
@@ -45,31 +44,17 @@ public class lec02Controller{
             default:
                 break;
         }
-        
-        switch (cpu) {
-            case 0:
-                model.addAttribute("cpuHand","Gu");
-                break;
-            case 1:
-                model.addAttribute("cpuHand","Tyoki");
-                break;
-            case 2:
-                model.addAttribute("cpuHand","Pa");
-                break;
-        
-            default:
-                break;
-        }
 
-        switch ((user-cpu+3)%3) {
+
+        switch ((hand-cpu+3)%3) {
             case 0:
                 model.addAttribute("result","You Draw!");
                 break;
             case 1:
-                model.addAttribute("result","You Lose!");    
+                model.addAttribute("result","You Win!");
                 break;
             case 2:
-                model.addAttribute("result","You Win!");
+                model.addAttribute("result","You Lose!");    
                 break;
         }
         return "lec02.html";
