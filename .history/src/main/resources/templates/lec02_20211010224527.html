@@ -14,10 +14,9 @@
     <a href="/lec02janken?hand=1">チョキ</a>
     <a href="/lec02janken?hand=2">パー</a>
     <div th:if="${userHand}">
-        <p>あなたの手 [[${userHand}]]<br>
-        相手の手 [[${cpuHand}]]<br>
-        結果 [[${result}]]
-    </p>
+        <p>あなたの手 [[${userHand}]]</p>
+        <p>相手の手 [[${cpuHand}]]</p>
+        <p>結果 [[${result}]]</p>
     </div>
 </body>
 </html>

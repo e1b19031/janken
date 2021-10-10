@@ -66,10 +66,10 @@ public class lec02Controller{
                 model.addAttribute("result","You Draw!");
                 break;
             case 1:
-                model.addAttribute("result","You Lose!");    
+                model.addAttribute("result","You Win!");
                 break;
             case 2:
-                model.addAttribute("result","You Win!");
+                model.addAttribute("result","You Lose!");    
                 break;
         }
         return "lec02.html";
