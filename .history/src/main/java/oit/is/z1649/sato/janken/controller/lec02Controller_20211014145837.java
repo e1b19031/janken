@@ -27,7 +27,9 @@ public class lec02Controller{
     @GetMapping("/lec02")
     public String lec02(Principal prin,ModelMap model){
         String loginuser=prin.getName();
-        model.addAttribute("login_user",loginuser);
+        model.addAttribute("login_user",loginUser);
+        this.entry.addUser(loginuser);
+        model.addAttribute("entry",this.entry);
         return "lec02.html";
     }
 

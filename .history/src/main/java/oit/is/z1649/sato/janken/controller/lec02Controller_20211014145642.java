@@ -15,9 +15,6 @@ import oit.is.z1649.sato.janken.model.Entry;
 @Controller
 public class lec02Controller{
 
-    @Autowired
-    private Entry entry;
-
     /**
    *
    * @param model Thymeleafにわたすデータを保持するオブジェクト
@@ -27,7 +24,9 @@ public class lec02Controller{
     @GetMapping("/lec02")
     public String lec02(Principal prin,ModelMap model){
         String loginuser=prin.getName();
-        model.addAttribute("login_user",loginuser);
+        model.addAttribute("login_user",loginUser);
+        this.Entry.addUser(loginuser);
+        model.addAttribute("entry",this.entry);
         return "lec02.html";
     }
 

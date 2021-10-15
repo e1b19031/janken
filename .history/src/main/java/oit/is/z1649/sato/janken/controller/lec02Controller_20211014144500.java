@@ -2,7 +2,6 @@ package oit.is.z1649.sato.janken.controller;
 
 import java.security.Principal;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,19 +14,11 @@ import oit.is.z1649.sato.janken.model.Entry;
 @Controller
 public class lec02Controller{
 
-    @Autowired
-    private Entry entry;
-
     /**
-   *
-   * @param model Thymeleafにわたすデータを保持するオブジェクト
-   * @param prin  ログインユーザ情報が保持されるオブジェクト
-   * @return
-   */
+     * @return 
+     */
     @GetMapping("/lec02")
-    public String lec02(Principal prin,ModelMap model){
-        String loginuser=prin.getName();
-        model.addAttribute("login_user",loginuser);
+    public String lec02(){
         return "lec02.html";
     }
 

@@ -28,6 +28,8 @@ public class lec02Controller{
     public String lec02(Principal prin,ModelMap model){
         String loginuser=prin.getName();
         model.addAttribute("login_user",loginuser);
+        this.entry.addUser(loginuser);
+        model.addAttribute("entry",this.entry);
         return "lec02.html";
     }
 

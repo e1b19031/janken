@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>lec02</title>
 </head>
 <body>
     <div><a href="/logout">ログアウト</a></div>
-
+    
     <h1>Lec02 GET!</h1>
 
-    <p>Hi <span sec:authentication="name"></span></p>
-
+    <ul>
+        <li th:each="${entry.user}"
+    </ul>
+    
     <a href="/lec02janken?hand=0">グー</a>
     <a href="/lec02janken?hand=1">チョキ</a>
     <a href="/lec02janken?hand=2">パー</a>
