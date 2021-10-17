@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import oit.is.z1649.sato.janken.model.Entry;
 
 @Controller
-public class Lec02Controller{
+public class lec02Controller{
 
     @Autowired
     private Entry entry;
@@ -29,7 +29,7 @@ public class Lec02Controller{
         String loginuser=prin.getName();
         model.addAttribute("login_user",loginuser);
         this.entry.addUser(loginuser);
-        model.addAttribute("entry", this.entry);
+        model.addAttribute("entry",this.entry);
         return "lec02.html";
     }
 

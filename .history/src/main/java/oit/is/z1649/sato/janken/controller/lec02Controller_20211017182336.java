@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import oit.is.z1649.sato.janken.model.Entry;
 
 @Controller
-public class Lec02Controller{
+public class lec02Controller{
 
     @Autowired
     private Entry entry;

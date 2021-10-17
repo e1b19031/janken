@@ -9,16 +9,12 @@
 
     <h1>Lec02 GET!</h1>
 
-    <!--ログインユーザ一覧-->
-    <div th:if="${entry}">
-        <p>エントリー</p>
-        <ul>
-            <li th:each="user : ${entry.users}" th:text="${user}"></li>
-        </ul>
-    </div>
-
-    <p>Hi <span sec:authentication="name"></span></p>
-
+    <p>エントリー</p>
+    <ul>
+        <li th:each="user : ${entry.user}">[[${user}]]</li>
+    </ul>
+    
+    <p>Hi <span sec:ausec:authentication="name"/></p>
     <a href="/lec02janken?hand=0">グー</a>
     <a href="/lec02janken?hand=1">チョキ</a>
     <a href="/lec02janken?hand=2">パー</a>
