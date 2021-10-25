@@ -70,8 +70,7 @@ public class Lec02Controller{
                 model.addAttribute("result","You Win!");
                 break;
         }
-        ArrayList<Match> match=matchMapper.selectAll();
-        model.addAttribute("matches",match);
+        selectAllMatches();
         return "lec02.html";
     }
 
@@ -85,5 +84,10 @@ public class Lec02Controller{
                 return "Pa";
         }
         return "";
+    }
+
+    public void selectAllMatches(ModelMap model) {
+        ArrayList<Match> match=matchMapper.selectAll();
+        model.addAttribute("matches",match);
     }
 }
