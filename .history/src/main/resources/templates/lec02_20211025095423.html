@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
-
 <head>
     <meta charset="UTF-8">
     <title>lec02</title>
 </head>
-
 <body>
     <div><a href="/logout">ログアウト</a></div>
 
@@ -14,12 +12,6 @@
     <!--ログインユーザ一覧-->
     <div th:if="${entry}">
         <p>エントリー</p>
-        <div th:each="user,stat:${users}">
-            <tr>
-                <tb>ID:[[${user.id}]]</tb>
-                <tb>name:[[${user.name}]]</tb>
-            </tr>
-        </div>
         <ul>
             <li th:each="user : ${entry.users}" th:text="${user}"></li>
         </ul>
@@ -31,12 +23,10 @@
     <a href="/lec02janken?hand=1">チョキ</a>
     <a href="/lec02janken?hand=2">パー</a>
     <div th:if="${userHand}">
-        <p>あなたの手 [[${userHand}]]<br>
-            相手の手 [[${cpuHand}]]<br>
-            結果 [[${result}]]
-        </p>
+    <p>あなたの手 [[${userHand}]]<br>
+        相手の手 [[${cpuHand}]]<br>
+        結果 [[${result}]]
+    </p>
     </div>
-    
 </body>
-
 </html>

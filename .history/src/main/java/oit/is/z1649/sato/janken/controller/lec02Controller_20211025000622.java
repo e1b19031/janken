@@ -37,6 +37,11 @@ public class Lec02Controller{
         model.addAttribute("login_user",loginuser);
         this.entry.addUser(loginuser);
         model.addAttribute("entry", this.entry);
+        return "lec02.html";
+    }
+
+    @GetMapping("/lec02AllSelect")
+    public String UsersAllSelect(ModelMap model) {
         ArrayList<User> user=userMapper.selectAll();
         model.addAttribute("users",user);
         return "lec02.html";

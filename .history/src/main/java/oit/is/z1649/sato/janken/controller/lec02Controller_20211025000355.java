@@ -3,7 +3,6 @@ package oit.is.z1649.sato.janken.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,9 +21,6 @@ public class Lec02Controller{
     @Autowired
     private Entry entry;
 
-    @Autowired
-    UserMapper userMapper;
-
     /**
    *
    * @param model Thymeleafにわたすデータを保持するオブジェクト
@@ -37,8 +33,12 @@ public class Lec02Controller{
         model.addAttribute("login_user",loginuser);
         this.entry.addUser(loginuser);
         model.addAttribute("entry", this.entry);
-        ArrayList<User> user=userMapper.selectAll();
-        model.addAttribute("users",user);
+        return "lec02.html";
+    }
+
+    @GetMapping("/lec02AllSelect")
+    public String UsersAllSelect() {
+        
         return "lec02.html";
     }
 
