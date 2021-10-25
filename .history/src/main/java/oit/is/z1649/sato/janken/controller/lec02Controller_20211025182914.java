@@ -17,6 +17,7 @@ import oit.is.z1649.sato.janken.model.User;
 import oit.is.z1649.sato.janken.model.UserMapper;
 import oit.is.z1649.sato.janken.model.Match;
 import oit.is.z1649.sato.janken.model.MatchMapper;
+
 @Controller
 public class Lec02Controller{
 
@@ -25,9 +26,6 @@ public class Lec02Controller{
 
     @Autowired
     UserMapper userMapper;
-
-    @Autowired
-    MatchMapper matchMapper;
 
     /**
    *
@@ -56,8 +54,36 @@ public class Lec02Controller{
     public String lec02_1(@RequestParam Integer hand,ModelMap model) {
         int cpu=0;
         int user = hand.intValue();
-        model.addAttribute("userHand",stHand(user));
-        model.addAttribute("cpuHand",stHand(cpu));
+
+        switch (user) {
+            case 0:
+                model.addAttribute("userHand","Gu");
+                break;
+            case 1:
+                model.addAttribute("userHand","Tyoki");
+                break;
+            case 2:
+                model.addAttribute("userHand","Pa");
+                break;
+        
+            default:
+                break;
+        }
+        
+        switch (cpu) {
+            case 0:
+                model.addAttribute("cpuHand","Gu");
+                break;
+            case 1:
+                model.addAttribute("cpuHand","Tyoki");
+                break;
+            case 2:
+                model.addAttribute("cpuHand","Pa");
+                break;
+        
+            default:
+                break;
+        }
 
         switch ((user-cpu+3)%3) {
             case 0:
@@ -70,20 +96,6 @@ public class Lec02Controller{
                 model.addAttribute("result","You Win!");
                 break;
         }
-        ArrayList<Match> match=matchMapper.selectAll();
-        model.addAttribute("matches",match);
         return "lec02.html";
-    }
-
-    public static String stHand(int inHand) {
-        switch (inHand) {
-            case 0:
-                return "Gu";
-            case 1:
-                return "Tyoki";
-            case 2:
-                return "Pa";
-        }
-        return "";
     }
 }

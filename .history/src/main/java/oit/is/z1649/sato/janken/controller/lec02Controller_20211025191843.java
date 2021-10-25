@@ -86,4 +86,9 @@ public class Lec02Controller{
         }
         return "";
     }
+
+    public void selectAllMatches(ModelMap model) {
+        ArrayList<Match> match=matchMapper.selectAll();
+        model.addAttribute("matches",match);
+    }
 }

@@ -26,9 +26,6 @@ public class Lec02Controller{
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    MatchMapper matchMapper;
-
     /**
    *
    * @param model Thymeleafにわたすデータを保持するオブジェクト
@@ -70,8 +67,6 @@ public class Lec02Controller{
                 model.addAttribute("result","You Win!");
                 break;
         }
-        ArrayList<Match> match=matchMapper.selectAll();
-        model.addAttribute("matches",match);
         return "lec02.html";
     }
 
@@ -85,5 +80,9 @@ public class Lec02Controller{
                 return "Pa";
         }
         return "";
+    }
+
+    public static void selectAllMatches() {
+        
     }
 }
